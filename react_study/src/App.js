@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+const topics = [
+  {id:1, title:'html', body:'html is ...'}
+  {id:2, title:'css', body:'css is ...'}
+  {id:3, title:'js', body:'js is ...'}
+]
+
 function Header(props) {
   console.log('props', props.title)
   return (
@@ -15,18 +21,15 @@ function Header(props) {
 }
 
 function Nav() {
+  const lis = [
+    <li><a href="/read/1">html</a></li>,
+    <li><a href="/read/2">css</a></li>,
+    <li><a href="/read/3">js</a></li>
+  ]
   return (
     <nav>
       <ol>
-        <li>
-          <a href="/read/1">html</a>
-        </li>
-        <li>
-          <a href="/read/2">css</a>
-        </li>
-        <li>
-          <a href="/read/3">js</a>
-        </li>
+        {lis}
       </ol>
     </nav>
   );
@@ -45,7 +48,7 @@ function App() {
   return (
     <div>
       <Header title="WEB"></Header>
-      <Nav></Nav>
+      <Nav topics={topics}></Nav>
       <Article title="Welcome" body="Hello, web"></Article>
     </div>
   );
