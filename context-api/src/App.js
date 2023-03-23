@@ -10,20 +10,24 @@ export default function App() {
   console.log('theme', theme);
 
   return (
-    <div className="root" style={theme}>
-      <h1>Hello World!</h1>
-      <Sub1 />
-    </div>
+    <themeContext.Provider value={{ border: '10px solid blue' }}>
+      <div className="root" style={theme}>
+        <h1>Hello World!</h1>
+        <Sub1 />
+      </div>
+    </themeContext.Provider>
   );
 }
 
 function Sub1() {
   const theme = useContext(themeContext);
   return (
-    <div style={theme}>
-      <h1>Sub1</h1>
-      <Sub2 />
-    </div>
+    <themeContext.Provider value={{ border: '10px solid green' }}>
+      <div style={theme}>
+        <h1>Sub1</h1>
+        <Sub2 />
+      </div>
+    </themeContext.Provider>
   )
 }
 
